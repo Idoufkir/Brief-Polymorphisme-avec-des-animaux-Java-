@@ -31,19 +31,20 @@ public class Sauvage extends Animal {
         return super.toString() + "\n sound :" + sound;
     }
     
-	public void ReadSound(String effectSource)
+	public void ReadSound(String sound)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		AudioInputStream audioIn = AudioSystem.getAudioInputStream(new File(effectSource));
+		AudioInputStream audioIn = AudioSystem.getAudioInputStream(new File(sound));
 		Clip clip = AudioSystem.getClip();
 		clip.open(audioIn);
 		clip.start();
-		System.out.println(effectSource + " sound is start ! ");
-		System.out.println("s : " + clip.isActive());
+		System.out.println(sound + " is start ! ");
+		System.out.println(sound + " sound is start ! ");
+		System.out.println("Play Sound : " + clip.isActive());
 		while (clip.isActive()) {
-			System.out.println("hola "+effectSource);
+			//System.out.println("hola "+effectSource);
 		}
 		clip.close();
-		System.out.println(effectSource + " sound is end ! ");
+		System.out.println(sound + " sound is end ! ");
 	}
 
 	
